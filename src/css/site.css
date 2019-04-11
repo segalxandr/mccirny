@@ -1,0 +1,13 @@
+.list-group-item-action:hover {
+  color: #f7f7f8;
+  /* font-weight: 600; */
+  background-color: #2d1b68;
+}
+.list-group-item-action:active {
+  color: #030327;
+  /* font-weight: 600; */
+}
+ .list-group-item-action:focus {
+  color: #f7f7f8;
+  background-color: #17436e;
+}

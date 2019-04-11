@@ -1,7 +1,7 @@
 <template>
-  <aside class="bg-light border-right pt-16" id="sidebar-wrapper">
-    <div class="sidebar-heading">Start Bootstrap</div>
-    <div class="list-group list-group-flush">
+  <aside class="border-right pt-16" id="sidebar-wrapper">
+    <div class="sidebar-heading">{{ version }}</div>
+    <div class="list-group list-group-flush bg-danger">
       <slot></slot>
     </div>
   </aside>
@@ -10,8 +10,18 @@
 <script>
 /* eslint-disable no-unused-vars */
 // import { shuffle } from "lodash";
-
+// import Vue from "vue";
+// import { Component, Prop } from "vue-property-decorator";
+// @Component({})
 export default {
+  props: ["version"],
+  data() {
+    return {
+      expanded: true
+    };
+  }
+  // @Prop({ version: "0.1.1" })
+  // version;
   // functional: true,
   // render: (h, { children, props }) => (
   //   <article id="sidebar-wrapper" class="flex-grow p-4 bg-default">
