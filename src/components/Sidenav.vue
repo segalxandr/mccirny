@@ -1,6 +1,8 @@
 <template>
   <aside class="border-right pt-16" id="sidebar-wrapper">
-    <div class="pl-3 text-grey text-xs">{{ version }}</div>
+    <div class="pl-3 text-grey text-xs">
+      <a href="#" @click="handleHomeClick()">{{ version }}</a>
+    </div>
     <div class="list-group list-group-flush bg-danger">
       <div
         class="list-group-item list-group-item-action p-0 border-0"
@@ -43,6 +45,9 @@ export default class Sidenav extends Vue {
   selectedItemId = 0;
   expanded = false;
   sidenavObjects = sidenavObjects;
+  handleHomeClick() {
+    this.$router.push(`/`);
+  }
   childItemClick(itemChild) {
     this.selectedItemId = itemChild.id;
     // console.log("SLECTED ", id, this.slectedItem);

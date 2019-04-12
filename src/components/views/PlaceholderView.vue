@@ -1,7 +1,7 @@
 <template>
   <div class="m-0 p-0 d-flex flex-column">
     <!-- <div class="h3 p-4 text-center">{{ title }}</div> -->
-    <div class="card mt-16 mx-auto w-full">
+    <div class="card mt-16 mx-auto w-2/3">
       <div class="card-header">
         {{ this.$parent.$parent.$parent.contentTitle }}
       </div>
