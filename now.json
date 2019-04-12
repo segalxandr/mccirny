@@ -8,20 +8,9 @@
     }
   ],
   "routes": [
-    {
-      "src": "/(assets/.+|.+\\.css|.+\\.js)",
-      "headers": { "cache-control": "max-age=31536000,immutable" },
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*).html",
-      "headers": { "cache-control": "public,max-age=0,must-revalidate" },
-      "dest": "/$1.html"
-    },
-    {
-      "src": "/(.*)",
-      "headers": { "cache-control": "public,max-age=0,must-revalidate" },
-      "dest": "/index.html"
-    }
+    { "src": "^/js/(.*)", "dest": "/js/$1" },
+    { "src": "^/css/(.*)", "dest": "/css/$1" },
+    { "src": "^/img/(.*)", "dest": "/img/$1" },
+    { "src": ".*", "dest": "/index.html" }
   ]
 }
