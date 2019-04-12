@@ -50,11 +50,11 @@ export default class Sidenav extends Vue {
   }
   childItemClick(itemChild) {
     this.selectedItemId = itemChild.id;
-    // console.log("SLECTED ", id, this.slectedItem);
+    var item = this.sidenavObjects.find(
+      chld => chld.id === itemChild.id.charAt(0)
+    );
+
     const arrPlaceholder = ["3.3", "3.4", "3.5", "3.6", "3.7", "4.1"];
-    // let navigateTarget = arrPlaceholder.find(x => x === id)
-    //   ? "Placeholder"
-    //   : id.replace(".", "_");
     let navigateTarget = "";
     if (arrPlaceholder.find(x => x === itemChild.id)) {
       navigateTarget = "Placeholder";
@@ -62,6 +62,10 @@ export default class Sidenav extends Vue {
       navigateTarget = itemChild.id.replace(".", "_");
     }
     this.$emit("contentTitleSet", itemChild.title);
+    this.$emit("navigationChanged", {
+      title: item.title,
+      subTitle: itemChild.title
+    });
     this.$router.push(`/view/${navigateTarget}`);
   }
   get slectedItem() {

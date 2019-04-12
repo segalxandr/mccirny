@@ -7,6 +7,7 @@
         :version="version"
         @itemSelected="handleItemSelected"
         @contentTitleSet="handleContentTitleSet"
+        @navigationChanged="handleNavigationChanged"
       ></Sidenav>
       <Content slot="content">
         <router-view></router-view>
@@ -36,6 +37,10 @@ export default class App extends Vue {
   @Prop({ default: "0.1.1" })
   version;
   contentTitle = "Content Title";
+  contentNavigation = {
+    title: "Main Title",
+    subTitle: "Main Sub Title"
+  };
   toggleNode(e) {
     console.log("TOGGLING", e.title, e.expanded);
     e.expanded = !e.expanded;
@@ -44,9 +49,14 @@ export default class App extends Vue {
     console.log("Selected: ", i);
   }
   handleContentTitleSet(t) {
-    // console.log("TCL: App -> handleContentTitleSet -> t", t);
-
     this.contentTitle = t;
+  }
+  handleNavigationChanged(n) {
+    this.contentNavigation = n;
+    console.log(
+      "TCL: App -> handleNavigationChanged -> this.contentNavigation ",
+      JSON.stringify(this.contentNavigation)
+    );
   }
 }
 </script>
