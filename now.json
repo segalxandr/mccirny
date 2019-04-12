@@ -1,6 +1,10 @@
 {
   "version": 2,
   "name": "MCCIR NY",
+  "features": {
+    "cloud": "v2"
+  },
+  "alias": ["mccir-creator.com"],
   "builds": [
     {
       "src": "package.json",
