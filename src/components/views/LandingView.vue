@@ -10,7 +10,7 @@
         <!-- {{ this.$parent.$parent.$parent.contentTitle }} -->
       </div>
       <div class="card-body">
-        <div class="text-4xl">Portotype Report Applciation</div>
+        <div class="text-4xl">Prototype Report Application</div>
         <div class="font-thin font-weight-lighter pt-3 text-2xl">
           Click here when prompted to continue to the next screen.
         </div>
