@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve -o",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "now-build": "vue-cli-service build",
+    "start": "vue-cli-service serve"
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.18",

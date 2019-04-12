@@ -1,12 +1,10 @@
 <template>
-  <div  class="d-flex" id="wrapper">
+  <div class="d-flex" id="wrapper">
     <slot name="header">
       <h1 class="text-red">Please add a header!</h1>
     </slot>
     <slot name="sidenav">
-      <h1 class="text-red bg-secondary ">
-        Please add a sidenav!
-      </h1>
+      <h1 class="text-red bg-secondary">Please add a sidenav!</h1>
     </slot>
 
     <slot name="content">

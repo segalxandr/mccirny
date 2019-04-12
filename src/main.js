@@ -6,11 +6,12 @@ import "tailwindcss/dist/tailwind.css";
 import "./css/site.css";
 import Vue from "vue";
 import App from "./App";
-// import router from "./router";
+import router from "@/router";
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 new Vue({
   el: "#app",
-  render: h => <App />
+  render: h => <App />,
+  router
 });
