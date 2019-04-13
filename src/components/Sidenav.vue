@@ -1,7 +1,14 @@
 <template>
   <aside class="border-right pt-16" id="sidebar-wrapper">
     <div class="pl-3 text-grey text-xs">
-      <a href="#" @click="handleHomeClick()">{{ version }}</a>
+      <a
+        href="#"
+        @click="handleHomeClick()"
+        class="hover:no-underline text-grey hover:text-grey-dark"
+      >
+        <i class="fa fa-home"></i>
+        {{ version }}
+      </a>
     </div>
     <div class="list-group list-group-flush bg-danger">
       <div
@@ -37,7 +44,8 @@
 // import { shuffle } from "lodash";
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
-import { sidenavObjects } from "../data/dataObjects.js";
+import { sidenavObjects } from "@/data/dataObjects.js";
+import getParentTitle from "@/utilities/contentOps.js";
 @Component({})
 export default class Sidenav extends Vue {
   @Prop({ default: 0 })
@@ -50,9 +58,13 @@ export default class Sidenav extends Vue {
   }
   childItemClick(itemChild) {
     this.selectedItemId = itemChild.id;
-    var item = this.sidenavObjects.find(
-      chld => chld.id === itemChild.id.charAt(0)
-    );
+
+    // var item = this.sidenavObjects.find(
+    //   chld => chld.id === itemChild.id.charAt(0)
+    // );
+
+    // let parentTitle = getParentTitle(itemChild.id);
+    // console.log("TCL: Sidenav -> childItemClick -> it", parentTitle);
 
     const arrPlaceholder = ["3.3", "3.4", "3.5", "3.6", "3.7", "4.1"];
     let navigateTarget = "";
@@ -61,24 +73,13 @@ export default class Sidenav extends Vue {
     } else {
       navigateTarget = itemChild.id.replace(".", "_");
     }
+    this.$emit("slecteItemIdChange", itemChild.id);
     this.$emit("contentTitleSet", itemChild.title);
     this.$emit("navigationChanged", {
-      title: item.title,
+      title: getParentTitle(itemChild.id),
       subTitle: itemChild.title
     });
     this.$router.push(`/view/${navigateTarget}`);
-  }
-  get slectedItem() {
-    // console.log("LOOKING UP: ", this.selectedItemId);
-
-    let x = sidenavObjects
-      .filter(p => {
-        return p.itemChildren.find(s => s.id === this.selectedItemId);
-      })[0]
-      .itemChildren.find(item => item.id === this.selectedItemId);
-
-    // console.warn("FOUND ", x.id);
-    return x;
   }
 }
 </script>

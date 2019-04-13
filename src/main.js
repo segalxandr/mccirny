@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import "@fortawesome/fontawesome-free/css/all.css";
 import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
