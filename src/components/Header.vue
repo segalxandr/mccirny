@@ -5,6 +5,7 @@
         <div>
           <img src="../assets/logoNy.png" />
           <!-- <a href="#" @click="navigateToStart">
+            this works
           </a>-->
         </div>
         <div class="align-self-center h5 pl-6 text-white">
